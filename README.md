@@ -3,7 +3,13 @@
 <pre>
   mkdir htdocs
 
-  git clone https://github.com/os2display/docs.git htdocs/docs
+  # git clone https://github.com/os2display/docs.git htdocs/docs
+
+  # Because of fixes to install script.
+  git clone https://github.com/tuj/docs.git docs
+  cd docs
+  git checkout hotfix/install-update
+  cd ..
 
   vagrant up
   
@@ -11,20 +17,18 @@
   
   sudo -i
   
-  cd /vagrant/htdocs/docs/installation
+  cd /vagrant/docs/installation
+
+  export LANGUAGE=en_US.UTF-8
+  export LANG=en_US.UTF-8
+  export LC_ALL=en_US.UTF-8
+  locale-gen en_US.UTF-8
+  dpkg-reconfigure locales
   
   ./prepare_server.sh
   
   # MySQL root password: vagrant
-  
-  ## Adjust versions to newest in setup.sh:
-  
-  ## Versions
-  # SEARCH_NODE_VERSION="v2.1.8"
-  # MIDDLEWARE_VERSION="5.0.2"
-  # ADMIN_VERSION="5.1.1"
-  # SCREEN_VERSION="5.0.3"
-  
+    
   ./setup.sh
   
   #############
@@ -50,7 +54,7 @@
   # Administrator password (admin):
   # Secret token used in communcation (MySuperSecret):
   # Name to identify the API key by (os2display-test):
-  # FQDN for the administration interface (admin.example.com): middleware.test-os2display.vm
+  # FQDN for the administration interface (admin.example.com): admin.test-os2display.vm
   # Who should the middleware be runned as (root):
 
   ## Installing Administration interface:
@@ -59,7 +63,7 @@
   # Admin FQDN (admin.example.com): admin.test-os2display.vm
   # Database (admin_test-os2display_vm): os2display
   # Database username (root):
-  # Database password (vagrant): vagrant
+  # Database password (root): vagrant
   # Secret token (ThisTokenIsNotSoSecretChangeIt):
   # Mail from address (webmaster@os2display.dk): webmaster@admin.test-os2display.vm
   # Mail from name (webmaster):
@@ -69,8 +73,32 @@
   # Middleware host (https://middleware.example.com): middleware.test-os2display.vm
   # Middleware API key:
   # Zencoder API key:
-  # Site title (OS2Display example): Test OS2Display
+  # Site title (OS2Display example): TestOS2Display
 
+  # Super user name (admin): admin
+  # Super user password (admin): admin
+  # Super user mail (admin@example.com): ------
+
+  # Name of the normal OS user (root): vagrant
+
+  ## Installing Screen:
+
+  # Where to place screen (/home/www/example_com/screen): /vagrant/htdocs/screen
+  # Screen FQDN (screen.example.com): screen.test-os2display.vm
+  # Admin FQDN (admin.example.com): admin.test-os2display.vm
+  # Middleware API key: 
+
+  ## Visit and accept false certificates.
+  # https://admin.test-os2display.vm/
+  # https://screen.test-os2display.vm/
+  # https://middleware.test-os2display.vm/
+  # https://search.test-os2display.vm/
   
-
+  # Insert apikeys and indexes in admin/app/config/parameters.yml
+  # in admin:
+  app/console cache:clear --env=prod
+  app/console cache:clear --env=dev
+  
+  # Enable templates: https://admin.test-os2display.vm/#/admin-templates
+  # Create one of each type of content.
 </pre>

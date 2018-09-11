@@ -32,8 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sed -i '$ a 127.0.1.1 screen.test-os2display.vm admin.test-os2display.vm search.test-os2display.vm middleware.test-os2display.vm' /etc/hosts
   SHELL
 
-  config.bindfs.bind_folder '/vagrant', '/vagrant'
-
   # Disable vbguest update, as it hanges.
   config.vbguest.no_remote = true
   config.vbguest.auto_update = false
