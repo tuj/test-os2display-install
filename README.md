@@ -101,4 +101,6 @@
   
   # Enable templates: https://admin.test-os2display.vm/#/admin-templates
   # Create one of each type of content.
+  # Make sure cron is set for www-data
+  crontab -e -u www-data
 </pre>
