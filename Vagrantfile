@@ -34,12 +34,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.bindfs.bind_folder '/vagrant', '/vagrant'
 
-  # What to install
-  config.vm.provision :ansible do |ansible|
-    ansible.playbook = "playbook.yml"
-    ansible.raw_arguments = Shellwords.shellsplit(ENV['ANSIBLE_ARGS']) if ENV['ANSIBLE_ARGS']
-  end
-
   # Disable vbguest update, as it hanges.
   config.vbguest.no_remote = true
   config.vbguest.auto_update = false

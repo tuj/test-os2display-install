@@ -1,4 +1,4 @@
-# Installing os2display
+# Example installation of os2display in a vagrant box
 
 <pre>
   mkdir htdocs
@@ -10,11 +10,8 @@
   vagrant ssh
   
   sudo -i
-
-  # Install locales
-  dpkg-reconfigure locales
   
-  cd /vagrant/htdocs/docs
+  cd /vagrant/htdocs/docs/installation
   
   ./prepare_server.sh
   
@@ -53,14 +50,14 @@
   # Administrator password (admin):
   # Secret token used in communcation (MySuperSecret):
   # Name to identify the API key by (os2display-test):
-  # FQDN for the administration interface (admin.example.com): admin.test-os2display.vm
+  # FQDN for the administration interface (admin.example.com): middleware.test-os2display.vm
   # Who should the middleware be runned as (root):
 
   ## Installing Administration interface:
   
   # Where to place administration interface (/home/www/example_com/admin): /vagrant/htdocs/admin
   # Admin FQDN (admin.example.com): admin.test-os2display.vm
-  # Database (admin_test-os2display_vm):
+  # Database (admin_test-os2display_vm): os2display
   # Database username (root):
   # Database password (vagrant): vagrant
   # Secret token (ThisTokenIsNotSoSecretChangeIt):
@@ -73,5 +70,7 @@
   # Middleware API key:
   # Zencoder API key:
   # Site title (OS2Display example): Test OS2Display
+
+  
 
 </pre>
