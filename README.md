@@ -95,13 +95,7 @@
   # sudo service supervisor restart
 
   # Activate search index  
-  # Insert apikeys and indexes in admin/app/config/parameters.yml
-  # in admin:
-  app/console cache:clear --env=prod
-  app/console cache:clear --env=dev
-  
-  # And screen: /vagrant/htdocs/screen/app/config.js
-  
+
   # Make sure cron is set for www-data
   sudo crontab -e -u www-data
   # Insert:
