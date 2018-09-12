@@ -67,10 +67,10 @@
   # Secret token (ThisTokenIsNotSoSecretChangeIt):
   # Mail from address (webmaster@os2display.dk): webmaster@admin.test-os2display.vm
   # Mail from name (webmaster):
-  # Search host (https://search.example.com): search.test-os2display.vm
+  # Search host (https://search.example.com): 'http://search.test-os2display.vm'
   # Search API key:
   # Search index:
-  # Middleware host (https://middleware.example.com): middleware.test-os2display.vm
+  # Middleware host (https://middleware.example.com): 'http://middleware.test-os2display.vm'
   # Middleware API key:
   # Zencoder API key:
   # Site title (OS2Display example): TestOS2Display
@@ -93,6 +93,9 @@
   # https://screen.test-os2display.vm/
   # https://middleware.test-os2display.vm/
   # https://search.test-os2display.vm/
+  
+  # Manual node module install (because of vagrant permissions)
+  # ./install.sh
   
   # Insert apikeys and indexes in admin/app/config/parameters.yml
   # in admin:
