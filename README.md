@@ -77,7 +77,7 @@
 
   # Super user name (admin): admin
   # Super user password (admin): admin
-  # Super user mail (admin@example.com): ------
+  # Super user mail (admin@example.com): [your mail]
 
   # Name of the normal OS user (root): vagrant
 
