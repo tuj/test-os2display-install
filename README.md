@@ -68,10 +68,10 @@
   # Secret token (ThisTokenIsNotSoSecretChangeIt):
   # Mail from address (webmaster@os2display.dk): webmaster@admin.test-os2display.vm
   # Mail from name (webmaster):
-  # Search host (https://search.example.com): 'http://search.test-os2display.vm'
+  # Search host (https://search.example.com): 'https://search.test-os2display.vm'
   # Search API key:
   # Search index:
-  # Middleware host (https://middleware.example.com): 'http://middleware.test-os2display.vm'
+  # Middleware host (https://middleware.example.com): 'https://middleware.test-os2display.vm'
   # Middleware API key:
   # Zencoder API key:
   # Site title (OS2Display example): TestOS2Display
@@ -118,3 +118,17 @@
 
   # Test that screen works and gets content from backend.
 </pre>
+
+## Troubleshooting
+
+Search or middleware give 502. Try to run apps directly from their directories:
+<pre>
+  node app.js
+</pre>
+
+Make sure search indexes are activated:
+See https://github.com/os2display/vagrant/blob/development/scripts/search_activate.sh for script example.
+
+Make sure 1 of each type of content has been created, to initialize search:
+See https://github.com/os2display/vagrant/blob/development/scripts/search_initialize.sh for script example.
+
