@@ -6,6 +6,7 @@
   # git clone https://github.com/os2display/docs.git htdocs/docs
 
   # Because of fixes to install script.
+  # And commented-out commands, because of permission issues with vagrant.
   git clone https://github.com/tuj/docs.git docs
   cd docs
   git checkout hotfix/install-update
@@ -88,22 +89,32 @@
   # Admin FQDN (admin.example.com): admin.test-os2display.vm
   # Middleware API key: 
 
+  # Manual node module install (because of vagrant permissions)
+  # exit sudo mode
+  # ./install.sh  (in search_node and middleware)
+  # sudo service supervisor restart
+
+  # Activate search index  
+  # Insert apikeys and indexes in admin/app/config/parameters.yml
+  # in admin:
+  app/console cache:clear --env=prod
+  app/console cache:clear --env=dev
+  
+  # And screen: /vagrant/htdocs/screen/app/config.js
+  
+  # Make sure cron is set for www-data
+  sudo crontab -e -u www-data
+  # Insert:
+  # */1 * * * * /usr/bin/php /vagrant/htdocs/admin/app/console os2display:core:cron --env=prod
+  
   ## Visit and accept false certificates.
   # https://admin.test-os2display.vm/
   # https://screen.test-os2display.vm/
   # https://middleware.test-os2display.vm/
   # https://search.test-os2display.vm/
   
-  # Manual node module install (because of vagrant permissions)
-  # ./install.sh
-  
-  # Insert apikeys and indexes in admin/app/config/parameters.yml
-  # in admin:
-  app/console cache:clear --env=prod
-  app/console cache:clear --env=dev
-  
   # Enable templates: https://admin.test-os2display.vm/#/admin-templates
   # Create one of each type of content.
-  # Make sure cron is set for www-data
-  crontab -e -u www-data
+
+  # Test that screen works and gets content from backend.
 </pre>
